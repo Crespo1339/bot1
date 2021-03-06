@@ -2,6 +2,16 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 
+//----------------------------------------------//
+
+colors = require("colors");
+
+function log(text, color) {
+        if (typeof(color) != "undefined") { console.log(colors[color](text)) }
+}
+
+//----------------------------------------------//
+
 client.on('ready', () => {
     let activities = [
         `Made By C.J`,
@@ -13,7 +23,9 @@ client.on('ready', () => {
     }), 5000);
     client.user
     .setStatus("idle")
-    console.log('BOT ON')
+    log('BOT ON', 'green')
 })
+
+//----------------------------------------------//
 
 client.login(config.token);
